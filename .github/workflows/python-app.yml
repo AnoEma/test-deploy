@@ -38,4 +38,4 @@ jobs:
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
   
     - name: Deploy with rsync
-      run: rsync -avz ./apps/ 'root@vps51997.publiccloud.com.br':/root/apps/
+      run: rsync -avz ./apps/ 'root@191.252.201.52':/root/apps/
