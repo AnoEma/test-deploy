@@ -38,12 +38,8 @@ jobs:
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
   
     - name: Deploy with rsync
-      uses: burnett01/rsync-deployments@7.0.1
+      uses: appleboy/ssh-action@v0.1.10
       with:
-        switches: -avzr --delete
-        path: ${{ secrets.PATH_DEPLOY }}
-        remote_path: ${{ secrets.PATH_DEPLOY }}
-        remote_host: ${{ secrets.SSH_HOST }}
-        remote_port: 22
-        remote_user: ${{ secrets.SSH_USER }}
-        remote_key: ${{ secrets.SSH_PRIV_KEY }}
+        host: ${{ secrets.SSH_HOST }}
+        user: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIV_KEY }}
