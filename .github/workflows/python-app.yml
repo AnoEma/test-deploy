@@ -32,13 +32,13 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
           name: release
-          path: test-deploy/
+          path: ../src/
 
     - name: Retrieve release distributions
       uses: actions/download-artifact@v2
       with:
           name: release
-          path: test-deploy/
+          path: ../src/
     
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2
